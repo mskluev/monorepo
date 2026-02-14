@@ -1,43 +1,139 @@
+/* Basic Container Styles */
 .tx-container {
   padding-top: 4rem;
   padding-bottom: 4rem;
 }
 
-.tx-hero {
-  background-color: var(--md-primary-fg-color);
-  color: var(--md-primary-bg-color);
+/* Parallax Hero Styles */
+.tx-hero-parallax {
+  position: relative;
+  height: 100vh;
+  /* Fill the area above the fold */
+  overflow: hidden;
+  background-color: #f0f0f0;
+  /* Fallback */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tx-parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  will-change: transform;
+}
+
+/* Specific Layer Images using Provided Assets */
+.layer-0 {
+  background-image: url('../assets/layer0.png');
+  z-index: 1;
+}
+
+.layer-1 {
+  background-image: url('../assets/layer1.png');
+  z-index: 2;
+}
+
+.layer-2 {
+  background-image: url('../assets/layer2.png');
+  z-index: 3;
+}
+
+.layer-3 {
+  background-image: url('../assets/layer3.png');
+  z-index: 4;
+}
+
+.layer-4 {
+  background-image: url('../assets/layer4.png');
+  z-index: 5;
+}
+
+
+/* Fade Overlay */
+.tx-parallax-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #223d6c;
+  /* Default Background Fade Color */
+  opacity: 0;
+  /* Starts transparent */
+  z-index: 5;
+  /* Above background layers (0-4), below logo (6) if desired, or above all? */
+  /* If z-index 5, it is same as layer-4. Let's make it 5.5 or just 5 and rely on DOM order (it's after layer-4) */
+  pointer-events: none;
+  /* Allow clicks to pass through */
+  will-change: opacity;
+}
+
+/* Logo Layer sits on top */
+.logo-layer {
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  /* Center Vertically? Or maybe closer to top? */
+  justify-content: center;
+  /* Top Center as requested */
   text-align: center;
+  pointer-events: none;
+  /* Allow clicks to pass through if needed, but we have buttons */
 }
 
-.tx-hero h1 {
-  font-size: 3rem;
-  font-weight: 700;
+/* Make content clickable */
+.logo-layer .tx-hero__content {
+  pointer-events: auto;
+  margin-top: -10vh;
+  /* Adjust to move it up slightly if needed */
+}
+
+.tx-hero-logo {
+  max-width: 200px;
+  display: block;
+  margin: 0 auto 2rem;
+}
+
+/* Hero Content Text Styles */
+.tx-hero__content h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
   margin-bottom: 1rem;
-  color: white; 
+  color: #333;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
 }
 
-.tx-hero p {
-  font-size: 1.25rem;
+.tx-hero__content p {
+  font-size: 1.5rem;
   margin-bottom: 2rem;
-  opacity: 0.9;
+  color: #444;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.tx-hero__actions .md-button {
+  margin: 0 1rem;
+  font-size: 1.1rem;
+  padding: 0.8rem 1.6rem;
+}
+
+.tx-hero__actions .md-button--primary {
+  background-color: var(--md-primary-fg-color);
   color: white;
 }
 
-.tx-hero .md-button {
-  margin: 0 0.5rem;
-}
-
-.tx-hero .md-button--primary {
-  background-color: white;
-  color: var(--md-primary-fg-color);
-}
-
-.tx-hero .md-button--primary:hover {
-  background-color: rgba(255, 255, 255, 0.9);
-}
-
+/* Feature Section Styles */
 .tx-features {
   background-color: var(--md-default-bg-color);
+  position: relative;
+  z-index: 10;
+  /* Ensure features sit above parallax if it scrolls */
 }
 
 .tx-feature {

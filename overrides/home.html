@@ -1,53 +1,107 @@
 {% extends "main.html" %}
 
 {% block tabs %}
-  {{ super() }}
+{{ super() }}
 
-  <!-- Hero Section -->
-  <section class="tx-container tx-hero">
-    <div class="md-grid md-typeset">
-      <div class="tx-hero__content">
-        <h1>Unified Development with Monorepo</h1>
-        <p>Streamline your workflow with a single repository for Go, Python, and Documentation.</p>
+<!-- Parallax Hero Section -->
+<section class="tx-hero-parallax">
+  <div class="tx-parallax-layer layer-0"></div>
+  <div class="tx-parallax-layer layer-1"></div>
+  <div class="tx-parallax-layer layer-2"></div>
+  <div class="tx-parallax-layer layer-3"></div>
+  <div class="tx-parallax-layer layer-4"></div>
+
+  <!-- Fade Overlay -->
+  <div class="tx-parallax-overlay"></div>
+
+  <div class="tx-parallax-layer logo-layer">
+    <div class="tx-hero__content">
+      <img src="assets/Black 512.png" alt="SUMMIT Logo" class="tx-hero-logo" />
+      <h1>Unified Development with Monorepo</h1>
+      <p>Streamline your workflow with a single repository for Go, Python, and Documentation.</p>
+      <div class="tx-hero__actions">
         <a href="building-go/" class="md-button md-button--primary">Get Started with Go</a>
         <a href="building-python/" class="md-button">Get Started with Python</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Feature Sections -->
-  <section class="tx-container tx-features">
-    <div class="md-grid md-typeset">
-      
-      <!-- Go Feature -->
-      <div class="tx-feature">
-        <div class="tx-feature__content">
-          <h2>Golang Power</h2>
-          <p>Build high-performance services and lambdas using Go. Leverage shared libraries and efficient build processes.</p>
-          <a href="building-go/" class="md-button">Explore Go Docs</a>
-        </div>
+<!-- Feature Sections -->
+<section class="tx-container tx-features">
+  <div class="md-grid md-typeset">
+
+    <!-- Go Feature -->
+    <div class="tx-feature">
+      <div class="tx-feature__content">
+        <h2>Golang Power</h2>
+        <p>Build high-performance services and lambdas using Go. Leverage shared libraries and efficient build
+          processes.</p>
+        <a href="building-go/" class="md-button">Explore Go Docs</a>
       </div>
-
-      <!-- Python Feature -->
-      <div class="tx-feature">
-        <div class="tx-feature__content">
-          <h2>Python Flexibility</h2>
-          <p>Manage data pipelines and scripts with Python. integrated with `uv` for fast dependency management.</p>
-          <a href="building-python/" class="md-button">Explore Python Docs</a>
-        </div>
-      </div>
-
-      <!-- Documentation Feature -->
-      <div class="tx-feature">
-        <div class="tx-feature__content">
-          <h2>Comprehensive Docs</h2>
-          <p>Everything you need to know, all in one place. Powered by MkDocs and Material for MkDocs.</p>
-          <a href="index.md" class="md-button">Read the Docs</a>
-        </div>
-      </div>
-
     </div>
-  </section>
+
+    <!-- Python Feature -->
+    <div class="tx-feature">
+      <div class="tx-feature__content">
+        <h2>Python Flexibility</h2>
+        <p>Manage data pipelines and scripts with Python. integrated with `uv` for fast dependency management.</p>
+        <a href="building-python/" class="md-button">Explore Python Docs</a>
+      </div>
+    </div>
+
+    <!-- Documentation Feature -->
+    <div class="tx-feature">
+      <div class="tx-feature__content">
+        <h2>Comprehensive Docs</h2>
+        <p>Everything you need to know, all in one place. Powered by MkDocs and Material for MkDocs.</p>
+        <a href="index.md" class="md-button">Read the Docs</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const heroSection = document.querySelector('.tx-hero-parallax');
+    const layers = document.querySelectorAll('.tx-parallax-layer');
+    const overlay = document.querySelector('.tx-parallax-overlay');
+
+    if (!heroSection) return;
+
+    window.addEventListener('scroll', function () {
+      const scrollY = window.pageYOffset;
+      const heroHeight = heroSection.offsetHeight;
+
+      // Optimization: stop animating if hero is out of view
+      if (scrollY > heroHeight) return;
+
+      // Parallax Layers
+      layers.forEach((layer, index) => {
+        let speed = 0;
+
+        if (layer.classList.contains('layer-0')) speed = 0.5;
+        else if (layer.classList.contains('layer-1')) speed = 0.4;
+        else if (layer.classList.contains('layer-2')) speed = 0.25;
+        else if (layer.classList.contains('layer-3')) speed = 0.1;
+        else if (layer.classList.contains('layer-4')) speed = 0; // Normal scroll 
+
+        else if (layer.classList.contains('logo-layer')) speed = 0.3;
+
+        const yPos = scrollY * speed;
+        layer.style.transform = `translate3d(0, ${yPos}px, 0)`;
+      });
+
+      // Fade Overlay
+      if (overlay) {
+        // Calculate opacity: starts at 0, reaches 1 when scrolled 70% of hero height
+        let opacity = Math.min(scrollY / (heroHeight * 0.7), 1);
+        overlay.style.opacity = opacity;
+      }
+    });
+  });
+</script>
 {% endblock %}
 
 {% block content %}{% endblock %}
