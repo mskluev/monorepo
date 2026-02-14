@@ -1,0 +1,27 @@
+stages:
+  - generate
+  - trigger
+
+generate-child-pipeline:
+  stage: generate
+  image: python:3.12
+  script:
+    - pip install uv
+    - echo "Detecting changes..."
+    # Mocking git diff for demonstration or using real git if available
+    # In real pipeline: export CHANGED_FILES=$(git diff --name-only $CI_COMMIT_BEFORE_SHA $CI_COMMIT_SHA)
+    # Here we mock it if not present
+    - if [ -z "$CHANGED_FILES" ]; then export CHANGED_FILES="go/libs/common-utils/lib.go"; fi
+    - uv run --with PyYAML tools/ci/generate_pipeline.py > child-pipeline.yml
+  artifacts:
+    paths:
+      - child-pipeline.yml
+
+trigger-child-pipeline:
+  stage: trigger
+  needs: ["generate-child-pipeline"]
+  trigger:
+    include:
+      - artifact: child-pipeline.yml
+        job: generate-child-pipeline
+    strategy: depend

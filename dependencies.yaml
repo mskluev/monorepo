@@ -1,0 +1,11 @@
+dependencies:
+  go/libs/common-utils:
+    - go/apps/processor
+    - go/lambdas/notifier
+  go/apps/processor: []
+  go/lambdas/notifier: []
+  python/libs/data_core:
+    - python/apps/fanout
+    - python/lambdas/loader
+  python/apps/fanout: []
+  python/lambdas/loader: []

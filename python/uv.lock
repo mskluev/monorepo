@@ -1,0 +1,43 @@
+version = 1
+revision = 3
+requires-python = ">=3.12"
+
+[manifest]
+members = [
+    "data-core",
+    "fanout",
+    "loader",
+    "summit-test-python-workspace",
+]
+
+[[package]]
+name = "data-core"
+version = "0.1.0"
+source = { editable = "libs/data_core" }
+
+[[package]]
+name = "fanout"
+version = "0.1.0"
+source = { editable = "apps/fanout" }
+dependencies = [
+    { name = "data-core" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "data-core", editable = "libs/data_core" }]
+
+[[package]]
+name = "loader"
+version = "0.1.0"
+source = { editable = "lambdas/loader" }
+dependencies = [
+    { name = "data-core" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "data-core", editable = "libs/data_core" }]
+
+[[package]]
+name = "summit-test-python-workspace"
+version = "0.1.0"
+source = { virtual = "." }

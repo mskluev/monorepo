@@ -1,0 +1,15 @@
+[project]
+name = "fanout"
+version = "0.1.0"
+description = "Fanout application"
+requires-python = ">=3.12"
+dependencies = [
+    "data-core",
+]
+
+[project.scripts]
+fanout = "fanout:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
