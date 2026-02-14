@@ -1,0 +1,53 @@
+{% extends "main.html" %}
+
+{% block tabs %}
+  {{ super() }}
+
+  <!-- Hero Section -->
+  <section class="tx-container tx-hero">
+    <div class="md-grid md-typeset">
+      <div class="tx-hero__content">
+        <h1>Unified Development with Monorepo</h1>
+        <p>Streamline your workflow with a single repository for Go, Python, and Documentation.</p>
+        <a href="building-go/" class="md-button md-button--primary">Get Started with Go</a>
+        <a href="building-python/" class="md-button">Get Started with Python</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Sections -->
+  <section class="tx-container tx-features">
+    <div class="md-grid md-typeset">
+      
+      <!-- Go Feature -->
+      <div class="tx-feature">
+        <div class="tx-feature__content">
+          <h2>Golang Power</h2>
+          <p>Build high-performance services and lambdas using Go. Leverage shared libraries and efficient build processes.</p>
+          <a href="building-go/" class="md-button">Explore Go Docs</a>
+        </div>
+      </div>
+
+      <!-- Python Feature -->
+      <div class="tx-feature">
+        <div class="tx-feature__content">
+          <h2>Python Flexibility</h2>
+          <p>Manage data pipelines and scripts with Python. integrated with `uv` for fast dependency management.</p>
+          <a href="building-python/" class="md-button">Explore Python Docs</a>
+        </div>
+      </div>
+
+      <!-- Documentation Feature -->
+      <div class="tx-feature">
+        <div class="tx-feature__content">
+          <h2>Comprehensive Docs</h2>
+          <p>Everything you need to know, all in one place. Powered by MkDocs and Material for MkDocs.</p>
+          <a href="index.md" class="md-button">Read the Docs</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+{% endblock %}
+
+{% block content %}{% endblock %}

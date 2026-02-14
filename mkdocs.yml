@@ -1,0 +1,12 @@
+site_name: SUMMIT
+theme:
+  name: material
+  custom_dir: overrides
+
+extra_css:
+  - stylesheets/landing.css
+
+nav:
+  - Home: index.md
+  - Building Go: building-go.md
+  - Building Python: building-python.md
