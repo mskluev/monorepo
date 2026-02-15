@@ -379,3 +379,11 @@
   height: 24px;
   fill: currentColor;
 }
+
+/* Ensure the header remains pinned */
+.md-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  /* Ensure it stays above parallax layers (highest is 7) */
+}
