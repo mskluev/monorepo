@@ -23,7 +23,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: cover;
+  background-size: 100% 100%;
   background-position: center bottom;
   background-repeat: no-repeat;
   will-change: transform;
@@ -91,12 +91,12 @@
 /* Make content clickable */
 .logo-layer .tx-hero__content {
   pointer-events: auto;
-  margin-top: -10vh;
+  margin-top: -40vh;
   /* Adjust to move it up slightly if needed */
 }
 
 .tx-hero-logo {
-  max-width: 200px;
+  max-width: 400px;
   display: block;
   margin: 0 auto 2rem;
 }
