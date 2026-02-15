@@ -78,44 +78,88 @@
 /* Logo Layer sits on top */
 .logo-layer {
   z-index: 6;
-  display: flex;
-  align-items: center;
-  /* Center Vertically? Or maybe closer to top? */
-  justify-content: center;
-  /* Top Center as requested */
-  text-align: center;
+  /* Remove flex center to allow absolute positioning of children */
+  display: block;
   pointer-events: none;
-  /* Allow clicks to pass through if needed, but we have buttons */
 }
 
 /* Make content clickable */
 .logo-layer .tx-hero__content {
   pointer-events: auto;
-  margin-top: -40vh;
-  /* Adjust to move it up slightly if needed */
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  margin-top: 0;
 }
 
 .tx-hero-logo {
-  max-width: 400px;
-  display: block;
-  margin: 0 auto 2rem;
+  max-width: 300px;
+  /* Reduced slightly for top placement */
+  display: inline-block;
+  margin: 0;
 }
 
-/* Hero Content Text Styles */
-.tx-hero__content h1 {
-  font-size: 3.5rem;
+/* Bottom Left Content */
+.tx-hero__bottom-content {
+  position: absolute;
+  bottom: 4rem;
+  left: 4rem;
+  z-index: 7;
+  text-align: left;
+  pointer-events: auto;
+  max-width: 800px;
+}
+
+.tx-hero__bottom-content h1 {
+  font-size: 2rem;
   font-weight: 800;
-  margin-bottom: 1rem;
-  color: #333;
-  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
+  color: #f1f1f1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  line-height: 1.2;
 }
 
-.tx-hero__content p {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  color: #444;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+/* Navigation List Styles */
+.tx-hero-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 2rem;
 }
+
+.tx-hero-nav li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.tx-hero-nav li:last-child {
+  border-bottom: none;
+}
+
+.tx-hero-nav li span {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #f1f1f1;
+  margin-right: 2rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.tx-hero-nav .md-button {
+  margin: 0;
+  font-size: 1rem;
+  color: #f1f1f1;
+  padding: 0.5rem 1.2rem;
+  min-width: 100px;
+  text-align: center;
+}
+
+/* Old h1 styles removed/replaced above */
+
+/* Old p styles removed */
 
 .tx-hero__actions .md-button {
   margin: 0 1rem;
@@ -150,4 +194,188 @@
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
   color: var(--md-default-fg-color--light);
+}
+
+/* Feature Grid Styles */
+.tx-feature-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.tx-feature-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--md-default-fg-color);
+  margin-bottom: 0.5rem;
+}
+
+.tx-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .tx-feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* For 3x2 layout (2 columns on desktop is 3x2 if there are 6 items) */
+/* Wait, user asked for 3x2 layout, which usually means 3 columns x 2 rows */
+@media screen and (min-width: 1024px) {
+  .tx-feature-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.tx-feature-item {
+  background: var(--md-default-bg-color);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* Left align content inside items? Or center? User said "icon, header, and paragraph". Let's center for now as it looks better for features usually, or left if standard. The previous features were centered. Let's stick to center for now or maybe left for a cleaner grid look. Let's go with left align for grid items usually looks cleaner with icons. */
+  text-align: left;
+}
+
+.tx-feature-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tx-feature-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.tx-feature-icon {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 0;
+  margin-right: 0.75rem;
+  color: var(--md-primary-fg-color);
+  flex-shrink: 0;
+}
+
+.tx-feature-item h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0;
+  color: var(--md-default-fg-color);
+}
+
+.tx-feature-item p {
+  font-size: 1rem;
+  color: var(--md-default-fg-color--light);
+  line-height: 1.6;
+}
+
+/* Open Source Section */
+.tx-opensource {
+  background-image: url('../assets/logo-wall.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  text-align: center;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  position: relative;
+}
+
+/* Dark Overlay to ensure text readability */
+.tx-opensource::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.tx-opensource__content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.tx-opensource h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.tx-opensource p {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: #f0f0f0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  margin-bottom: 2rem;
+}
+
+/* Contact Section */
+.tx-contact {
+  background-color: var(--md-default-bg-color);
+  text-align: center;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.tx-contact h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--md-default-fg-color);
+  margin-bottom: 1rem;
+}
+
+.tx-contact p.tx-contact-desc {
+  font-size: 1.2rem;
+  color: var(--md-default-fg-color--light);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.tx-contact-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.tx-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  background-color: var(--md-code-bg-color);
+  /* Light gray usually */
+  border-radius: 8px;
+  color: var(--md-default-fg-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.tx-contact-item:hover {
+  background-color: var(--md-accent-fg-color);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.tx-contact-icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
 }

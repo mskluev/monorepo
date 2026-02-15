@@ -17,48 +17,180 @@
   <div class="tx-parallax-layer logo-layer">
     <div class="tx-hero__content">
       <img src="assets/Black 512.png" alt="SUMMIT Logo" class="tx-hero-logo" />
-      <h1>Unified Development with Monorepo</h1>
-      <p>Streamline your workflow with a single repository for Go, Python, and Documentation.</p>
-      <div class="tx-hero__actions">
-        <a href="building-go/" class="md-button md-button--primary">Get Started with Go</a>
-        <a href="building-python/" class="md-button">Get Started with Python</a>
-      </div>
+    </div>
+    <div class="tx-hero__bottom-content">
+      <h1>Unified Development with Monorepo:</h1>
+      <ul class="tx-hero-nav">
+        <li>
+          <span>Powerful Capabilities</span>
+          <a href="#features" class="md-button md-button--primary">Explore</a>
+        </li>
+        <li>
+          <span>Built on Open Source</span>
+          <a href="#opensource" class="md-button">View</a>
+        </li>
+        <li>
+          <span>Get in Touch</span>
+          <a href="#contact" class="md-button">Contact</a>
+        </li>
+      </ul>
     </div>
   </div>
 </section>
 
 <!-- Feature Sections -->
-<section class="tx-container tx-features">
-  <div class="md-grid md-typeset">
+<section class="tx-container tx-features" id="features">
+  <div class="tx-feature-header">
+    <h2>Powerful Capabilities</h2>
+    <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto; color: var(--md-default-fg-color--light);">
+      Explore the comprehensive toolset designed for modern development workflows.
+    </p>
+  </div>
 
-    <!-- Go Feature -->
-    <div class="tx-feature">
-      <div class="tx-feature__content">
-        <h2>Golang Power</h2>
-        <p>Build high-performance services and lambdas using Go. Leverage shared libraries and efficient build
-          processes.</p>
-        <a href="building-go/" class="md-button">Explore Go Docs</a>
+  <div class="tx-feature-grid">
+    <!-- Feature 1: Go Power -->
+    <div class="tx-feature-item">
+      <div class="tx-feature-title">
+        <!-- Icon: Lightning/Power -->
+        <svg class="tx-feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+        </svg>
+        <h3>Golang Power</h3>
       </div>
+      <p>Build high-performance services and lambdas using Go. Leverage shared libraries for efficiency.</p>
     </div>
 
-    <!-- Python Feature -->
-    <div class="tx-feature">
-      <div class="tx-feature__content">
-        <h2>Python Flexibility</h2>
-        <p>Manage data pipelines and scripts with Python. integrated with `uv` for fast dependency management.</p>
-        <a href="building-python/" class="md-button">Explore Python Docs</a>
+    <!-- Feature 2: Python Flexibility -->
+    <div class="tx-feature-item">
+      <div class="tx-feature-title">
+        <!-- Icon: Code/Python-ish -->
+        <svg class="tx-feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="16 18 22 12 16 6"></polyline>
+          <polyline points="8 6 2 12 8 18"></polyline>
+        </svg>
+        <h3>Python Flexibility</h3>
       </div>
+      <p>Manage data pipelines and scripts with Python, integrated with `uv` for fast dependency management.</p>
     </div>
 
-    <!-- Documentation Feature -->
-    <div class="tx-feature">
-      <div class="tx-feature__content">
-        <h2>Comprehensive Docs</h2>
-        <p>Everything you need to know, all in one place. Powered by MkDocs and Material for MkDocs.</p>
-        <a href="index.md" class="md-button">Read the Docs</a>
+    <!-- Feature 3: Comprehensive Docs -->
+    <div class="tx-feature-item">
+      <div class="tx-feature-title">
+        <!-- Icon: Book/Docs -->
+        <svg class="tx-feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+        </svg>
+        <h3>Comprehensive Docs</h3>
       </div>
+      <p>Everything you need to know, all in one place. Powered by MkDocs and Material for MkDocs.</p>
     </div>
 
+    <!-- Feature 4: Cloud Native -->
+    <div class="tx-feature-item">
+      <div class="tx-feature-title">
+        <!-- Icon: Cloud -->
+        <svg class="tx-feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+        </svg>
+        <h3>Cloud Native</h3>
+      </div>
+      <p>Designed for AWS Lambda and containerized environments. Deploy with confidence.</p>
+    </div>
+
+    <!-- Feature 5: CI/CD Ready -->
+    <div class="tx-feature-item">
+      <div class="tx-feature-title">
+        <!-- Icon: Git/Branch/Flow -->
+        <svg class="tx-feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="6" y1="3" x2="6" y2="15"></line>
+          <circle cx="18" cy="6" r="3"></circle>
+          <circle cx="6" cy="18" r="3"></circle>
+          <path d="M18 9a9 9 0 0 1-9 9"></path>
+        </svg>
+        <h3>CI/CD Ready</h3>
+      </div>
+      <p>Automated pipelines for build, test, and deploy. Ensure code quality with every commit.</p>
+    </div>
+
+    <!-- Feature 6: Scalable Architecture -->
+    <div class="tx-feature-item">
+      <div class="tx-feature-title">
+        <!-- Icon: Layers/Server -->
+        <svg class="tx-feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+          <polyline points="2 17 12 22 22 17"></polyline>
+          <polyline points="2 12 12 17 22 12"></polyline>
+        </svg>
+        <h3>Scalable Architecture</h3>
+      </div>
+      <p>Built to grow with your needs. Modularity allows for easy expansion and maintenance.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Open Source Section -->
+<section class="tx-opensource" id="opensource">
+  <div class="tx-opensource__content">
+    <h2>Built on Open Source</h2>
+    <p>
+      We stand on the shoulders of giants. Our platform leverages the power and flexibility of
+      industry-standard open source technologies to deliver robust and scalable solutions.
+    </p>
+    <a href="https://github.com/summit-ai" class="md-button md-button--primary"
+      style="background-color: white; color: #333; border: none;">View on GitHub</a>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="tx-container tx-contact" id="contact">
+  <h2>Get in Touch</h2>
+  <p class="tx-contact-desc">
+    Have questions or want to contribute? Reach out to us through any of these channels.
+  </p>
+  <div class="tx-contact-grid">
+    <!-- Email -->
+    <a href="mailto:hello@summit.ai" class="tx-contact-item">
+      <svg class="tx-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path
+          d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+      </svg>
+      <span>hello@summit.ai</span>
+    </a>
+
+    <!-- Twitter/X -->
+    <a href="https://twitter.com/summit_ai" class="tx-contact-item" target="_blank" rel="noopener">
+      <svg class="tx-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path
+          d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+      </svg>
+      <span>@summit_ai</span>
+    </a>
+
+    <!-- GitHub -->
+    <a href="https://github.com/summit-ai" class="tx-contact-item" target="_blank" rel="noopener">
+      <svg class="tx-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path
+          d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+      </svg>
+      <span>GitHub</span>
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://linkedin.com/company/summit-ai" class="tx-contact-item" target="_blank" rel="noopener">
+      <svg class="tx-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path
+          d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+      </svg>
+      <span>LinkedIn</span>
+    </a>
   </div>
 </section>
 
