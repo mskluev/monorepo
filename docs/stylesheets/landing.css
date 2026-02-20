@@ -389,44 +389,60 @@
   margin-bottom: 0.5rem;
 }
 
-.tx-feature-grid {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 2rem;
-  max-width: 1200px;
+.tx-feature-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
-@media screen and (min-width: 768px) {
-  .tx-feature-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* For 3x2 layout (2 columns on desktop is 3x2 if there are 6 items) */
-/* Wait, user asked for 3x2 layout, which usually means 3 columns x 2 rows */
-@media screen and (min-width: 1024px) {
-  .tx-feature-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.tx-feature-item {
-  background: var(--md-default-bg-color);
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.tx-feature-row {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  /* Left align content inside items? Or center? User said "icon, header, and paragraph". Let's center for now as it looks better for features usually, or left if standard. The previous features were centered. Let's stick to center for now or maybe left for a cleaner grid look. Let's go with left align for grid items usually looks cleaner with icons. */
+  align-items: center;
+  gap: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .tx-feature-row {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 4rem;
+  }
+
+  /* Alternate order for even rows */
+  .tx-feature-row:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+}
+
+.tx-feature-content {
+  flex: 1;
   text-align: left;
 }
 
-.tx-feature-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+.tx-feature-media {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.tx-placeholder-img {
+  width: 100%;
+  max-width: 400px;
+  height: 250px;
+  background-color: #e2e8f0;
+  border: 1px dashed #cbd5e1;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #64748b;
+  font-weight: 500;
+  font-size: 1.1rem;
 }
 
 .tx-feature-title {
@@ -444,15 +460,16 @@
   flex-shrink: 0;
 }
 
-.tx-feature-item h3 {
-  font-size: 1.25rem;
+.tx-feature-content h3 {
+  font-size: 1.5rem;
   font-weight: 600;
+  margin-top: 0;
   margin-bottom: 0;
   color: var(--md-default-fg-color);
 }
 
-.tx-feature-item p {
-  font-size: 1rem;
+.tx-feature-content p {
+  font-size: 1.1rem;
   color: var(--md-default-fg-color--light);
   line-height: 1.6;
 }
