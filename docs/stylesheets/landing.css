@@ -445,6 +445,13 @@
   font-size: 1.1rem;
 }
 
+.tx-feature-img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+  display: block;
+}
+
 .tx-feature-title {
   display: flex;
   align-items: center;
