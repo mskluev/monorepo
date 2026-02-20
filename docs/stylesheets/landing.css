@@ -265,6 +265,93 @@
   margin-bottom: 2rem;
 }
 
+/* Overview Cards */
+.tx-overview-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+  text-align: left;
+}
+
+@media screen and (min-width: 768px) {
+  .tx-overview-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.tx-overview-card {
+  background: rgba(255, 255, 255, 0.05);
+  /* Semi-transparent overlay */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.tx-overview-card h3 {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.tx-pill-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.tx-pill {
+  display: flex;
+  align-items: center;
+  padding: 0.4rem 1rem 0.4rem 0.4rem;
+  background-color: #1b3156;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  /* Subtle border */
+  color: #e2e8f0;
+  border-radius: 8px;
+  /* Less rounded */
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  /* Or allow wrapping */
+}
+
+.tx-pill:hover {
+  background-color: #2d3748;
+  /* Slightly lighter on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.tx-pill svg {
+  width: 18px;
+  height: 18px;
+  padding: 0.4rem;
+  box-sizing: content-box;
+  background-color: rgba(255, 255, 255, 0.05);
+  /* Distinct background just for the icon */
+  border-radius: 6px;
+  /* Inner radius for the icon box */
+  margin-right: 0.75rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
 /* Feature Section Styles */
 .tx-features {
   background-color: var(--md-default-bg-color);

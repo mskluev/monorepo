@@ -12,3 +12,13 @@ nav:
   - Home: index.md
   - Building Go: building-go.md
   - Building Python: building-python.md
+  - Go Analytics: 
+    - Optical Character Recognition: go-analytics/optical-character-recognition.md
+    - Image Classification: go-analytics/image-classification.md
+    - Object Detection: go-analytics/object-detection.md
+    - NSFW Detection: go-analytics/nsfw-detection.md
+  - Python Analytics: 
+    - Named Entity Recognition: python-analytics/named-entity-recognition.md
+    - Text Classification: python-analytics/text-classification.md
+    - Sentiment Analysis: python-analytics/sentiment-analysis.md
+    - Topic Modeling: python-analytics/topic-modeling.md
